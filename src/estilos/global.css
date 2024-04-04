@@ -1,0 +1,271 @@
+
+body{
+    margin: 20px;
+    font-family: "Podkova", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del texto del elemento padre */
+}
+
+.paginar:hover{
+    color: rgb(100, 100, 100);
+}
+
+.usuario{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 810px){
+    .usuario{
+        width: 50%;
+        justify-content:space-between;
+    }
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.secciontitulo{
+    display: inline-block;
+    text-align: center;
+    margin: 0;   
+}
+
+.secciontitulo h1{
+    margin: 2px;
+}
+
+.adorno{
+    width: 400px;
+    background-color: #F1B038;
+    height: 20px;
+    border-radius: 20px;
+    margin-top: 1%;
+}
+
+.seccionurl{
+    width: 70%;
+    margin-top: 8%;
+}
+
+.formurl1{
+    margin-top: 2%;
+    height: 2.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.input1{
+    width: 75%;
+    border: 2px solid #969696;
+    height: 100%;
+    font-family: "Podkova", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 15px;
+}
+
+.button1{
+    margin-left: 2%;
+    background-color: #C6E9F3;
+    border: 2px solid #969696;
+    height: 115%;
+    font-family: "Podkova", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: large;
+    font-style: normal;
+    width: 17.5%;
+}
+
+.button1:hover{
+    cursor: pointer;
+    background-color: #b8d8e0;
+}
+
+@media screen and (max-width: 810px){
+    .adorno{
+        margin-bottom: 80px;
+    }
+    nav{
+        margin-bottom: 50px;
+    }
+}
+
+.adorno.login{
+    width: 210px;
+}
+
+
+.logform{
+    width: 60%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.formsec{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+    width: 100%;
+}
+
+.input1.login{
+    height: 30px;
+    margin-top: 2px;
+    width: 100%;
+}
+
+.button1.login{
+    margin-left: 0;
+    margin-top: 3%;
+    height: 2.2em;
+    width: 150px;
+}
+
+.adorno.logup{
+    width: 125px;
+}
+
+.logform.logup{
+    margin-top: 20px;
+}
+
+footer{
+    background-color: gray;
+    margin-top: 13.5%;
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 12em;
+    margin-bottom: -20px;
+}
+
+.secredes{
+    background-color: rgb(78, 78, 78);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+
+}
+
+.desarrollado{
+    background-color: black;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desarrollado h4{
+    color: rgb(238, 238, 238);
+}
+
+.github{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.seccionurl.user{
+    margin: 0;
+    margin-top: 1.8%;
+    margin-bottom: 7%;
+}
+
+.tusdirecciones{
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.ejemplo{
+    border: 2px solid rgba(131, 130, 130, 0.507);
+    border-radius: 5px;
+    height: 40px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.seccionejemplo{
+    border: 2px solid black;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    align-self: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 3%;
+}
+
+.botonesejemplo{
+
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+.button1.botonejemplo{
+    margin: 0;
+    height: 2.3em;
+    width: 9em;
+}
+
+.ejemplo h3{
+    margin-left: 3%;
+}
+
+.button1.botonejemplo.copiar{
+    background-color: #E7E7E7;
+}
+
+.button1.botonejemplo.modificar{
+    background-color: #fcd897;
+}
+
+.button1.botonejemplo.eliminar{
+    background-color: #F3C6C6;
+}
+
+.errores{
+    margin-top: 15px;
+}
+
+.error{
+    margin-top: 8px;
+    color: red;
+}
