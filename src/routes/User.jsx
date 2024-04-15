@@ -38,20 +38,17 @@ const User = () => {
 
     const obtenerUsuario = async(event) => {
         try {
+            const newToken = await refreshAccessToken();
+            localStorage.setItem("token", newToken);
             const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/protected', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
+                    Authorization: `Bearer ${newToken}`
                 },
             });
             const responseData = await response.json();
             console.log(responseData);
-            
-            if (responseData.error === "JWT expirado"){
-                const newToken = await refreshAccessToken();
-                localStorage.setItem("token", newToken);
-            }
             
             const emailUsuario = responseData.email
             setUserEmail(emailUsuario);  
