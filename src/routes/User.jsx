@@ -22,20 +22,59 @@ const User = () => {
         longLink: '',
     });
 
-    const token = localStorage.getItem("token")
 
     useEffect(() => {
-        obtenerUsuario()
-    }, [token])
+        const fetchData = async() => {
+            try {
+                const token = localStorage.getItem("token");
+                if (!token) return;
+                const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/protected', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`
+                    },
+                });
+                const responseData = await response.json();
+                console.log(responseData);
+                
+                if (responseData.error === "JWT expirado"){
+                    const newToken = await refreshAccessToken();
+                    localStorage.setItem("token", newToken);
+                }
+                
+                const emailUsuario = responseData.email
+                setUserEmail(emailUsuario);  
 
-    useEffect(() => {
-        obtenerLinks()
-    }, [token])
+                const responseLinks = await fetch('https://shorturlback.onrender.com/api/v1/links', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+    
+                const responseDataLinks = await responseLinks.json()
+    
+                const arrayLinks = responseDataLinks.links.map(elemento => ({
+                        longLink: elemento.longLink,
+                        nanoLink: elemento.nanoLink,
+                        id: elemento._id.toString()
+                }))
+    
+                setLinks(arrayLinks)
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }, [])
 
     const signOut = () => {
         localStorage.removeItem('token');
     }
 
+    /*
     const obtenerUsuario = async(event) => {
         try {
             const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/protected', {
@@ -58,7 +97,8 @@ const User = () => {
         } catch (error) {
             console.error('Error al realizar la solicitud:', error);
         }
-    }      
+    }
+    */      
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -105,6 +145,7 @@ const User = () => {
             console.error("Error:", error);
         }
     };
+
 
     const obtenerLinks = async (event) => {
         try {
