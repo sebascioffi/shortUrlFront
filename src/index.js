@@ -9,6 +9,7 @@ import Logup from './routes/Logup';
 import User from './routes/User';
 import VerificarUsuario from "./components/VerificarUsuario"
 import VerificarInicio from "./components/VerificarInicio"
+import AcortadorUrl from './routes/AcortadorUrl';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
             <Route index element={<Inicio />} />
             <Route path='/login' element={<Login />} />
             <Route path='/logup' element={<Logup />} />
+            <Route path='/:nanoLink' element={<AcortadorUrl />} />
             <Route path='/user' element={
               <VerificarUsuario>
                 <User />

@@ -209,15 +209,16 @@ footer{
 .ejemplo{
     border: 2px solid rgba(131, 130, 130, 0.507);
     border-radius: 5px;
-    height: 40px;
+
     width: 90%;
     display: flex;
-    align-items: center;
+
+    flex-direction: column;
 }
 
 .seccionejemplo{
     border: 2px solid black;
-    height: 100px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -227,6 +228,7 @@ footer{
     padding-top: 2%;
     padding-bottom: 2%;
     margin-top: 3%;
+    margin-bottom: 2%;
 }
 
 .botonesejemplo{
@@ -268,4 +270,180 @@ footer{
 .error{
     margin-top: 8px;
     color: red;
+}
+
+.paginar.useremail{
+    border-bottom: 2px solid #f1b0387a;
+}
+
+.longurlh3{
+    color: rgba(0, 0, 0, 0.425);
+    font-size: 15px;
+}
+
+.shorturlh3{
+    margin-right: 3px;
+}
+
+.enlaceshorturl{
+    margin-left: 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.enlaceshorturl h3{
+    margin-right: 2px;
+}
+
+.shorturldiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.nolinks{
+
+    text-align: center;
+    margin-top: 5%;
+}
+
+.inputmodificar{
+    color: rgba(0, 0, 0, 0.425);
+    width: 73%;
+        padding: 8px; /* Agrega espacio alrededor del texto dentro del input */
+        border: 1px solid #ccc; /* Agrega un borde delgado alrededor del input */
+        border-radius: 4px; /* Redondea las esquinas del input */
+        background-color: #f9f9f9; /* Establece el color de fondo */
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); /* Agrega una sombra sutil al input *//* Establece el ancho al 100% para que se ajuste al contenedor */
+        box-sizing: border-box; /* Hace que el ancho incluya el borde y el relleno */
+        font-family: "Podkova", serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-size: 15px;
+        font-style: normal;
+}
+
+.confirmarcambios{
+    background-color: #daf3d5;
+    border: 2px solid #969696;
+    font-family: "Podkova", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 15px;
+    font-style: normal;
+    cursor: pointer;
+}
+
+
+.modificarform{
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button1.botonejemplo.modificar:active{
+    background-color: #d8ba81;
+}
+.button1.botonejemplo.eliminar:active{
+    background-color: #cca6a6;
+}
+.button1.botonejemplo.copiar:active{
+    background-color: #b8b7b7;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que esté por encima de todo lo demás */
+}
+
+.modal-contenido {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    position: relative; /* Para que el span pueda tener una posición absoluta dentro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido h2{
+    margin-bottom: 5%;
+}
+
+.modal-contenido p{
+    font-family: "Podkova", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style:italic;
+    font-size: large;
+}
+
+.modallink{
+    color: #F1B038;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Estilos para los botones dentro del modal */
+.boton-modal-iniciar-sesion,
+.boton-modal-registrarse {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.boton-modal-iniciar-sesion:hover,
+.boton-modal-registrarse:hover {
+    background-color: #0056b3;
+}
+
+.boton-modal-iniciar-sesion:hover,
+.boton-modal-registrarse:hover {
+    background-color: #0056b3;
+}
+
+
+@media screen and (max-width: 810px){
+    .seccionurl.inicio{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .seccionejemplo{
+        width: 90%;
+        margin-top: 8%;
+        margin-bottom: 3%;
+    }
+    .nolinks{
+        margin-top: 20%;
+    }
+    .tusdirecciones{
+        width: 90%;
+    }
+    .seccionurl.user{
+        width: 90%;
+    }
 }

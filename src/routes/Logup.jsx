@@ -47,11 +47,16 @@ const Logup = () => {
                 setErrors(errorMessages);
             }
             else{
-                const responseData = await response.json(); // Parsea los datos de la respuesta
-                const token = responseData.token; // Obtiene el token de los datos de la respuesta
-                localStorage.setItem('token', token);
-                navigate('/user');
-                alert('Registro realizado con éxito');
+                if (formData.password !== formData.repassword){
+                    setErrors(["Las contraseñas no coinciden"])
+                }
+                else{
+                    const responseData = await response.json(); // Parsea los datos de la respuesta
+                    const token = responseData.token; // Obtiene el token de los datos de la respuesta
+                    localStorage.setItem('token', token);
+                    navigate('/user');
+                    alert('Registro realizado con éxito');
+                }
             }
         } catch (error) {
             console.error("Error:", error);
@@ -62,7 +67,7 @@ const Logup = () => {
   return (
     <>
     <nav>
-        <img src={icono} alt="" width={"55px"} />
+        <Link to={"/"}><img src={icono} alt="" width={"55px"} /></Link>
         <div className="usuario">
             <Link to="/" className="paginar"><h4>Inicio</h4></Link>
             <Link to="/login" className="paginar"><h4>Iniciar Sesión</h4></Link>
