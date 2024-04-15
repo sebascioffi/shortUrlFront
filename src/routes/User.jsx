@@ -131,7 +131,8 @@ const User = () => {
             }
     }
 
-    const removeLink = async (linkId) => {
+    const removeLink = async (event, linkId) => {
+        event.preventDefault()
         const newToken = await refreshAccessToken();
         localStorage.setItem("token", newToken);
         try {
@@ -282,7 +283,7 @@ const User = () => {
                 ): (
                     <button className="button1 botonejemplo modificar" onClick={() => handleModificar(index, link.longLink)} >Modificar</button>                    
                 )}
-                <button className="button1 botonejemplo eliminar" onClick={() => removeLink(link.id)}>Eliminar</button>
+                <button className="button1 botonejemplo eliminar" onClick={(event) => removeLink(event, link.id)}>Eliminar</button>
             </div>
             {modificarIndex === index && errorsModificar.length > 0 && (
                 <div className="errores">
