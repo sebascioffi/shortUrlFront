@@ -6,6 +6,7 @@ const refreshAccessToken = async () => {
       });
   
       const responseData = await response.json();
+      console.log("response data del refreshAccessToken: "+responseData);
       const newToken = responseData.token;
       console.log("Token refrescado");
       return newToken;
