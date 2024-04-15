@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import UserProvider from "./context/UserProvider"
 import Inicio from './routes/Inicio';
 import Login from './routes/Login';
 import Logup from './routes/Logup';
@@ -15,7 +14,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
         <Routes>
           <Route path="/" element={
             <VerificarInicio>
@@ -33,7 +31,6 @@ root.render(
             } />
           </Route>
         </Routes>
-      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
