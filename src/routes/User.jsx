@@ -149,6 +149,7 @@ const User = () => {
 
     const obtenerLinks = async (event) => {
         try {
+            const token = localStorage.getItem("token");
             const response = await fetch('https://shorturlback.onrender.com/api/v1/links', {
                 method: 'GET',
                 headers: {
