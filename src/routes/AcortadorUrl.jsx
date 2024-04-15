@@ -13,7 +13,7 @@ const AcortadorUrl = () => {
 
     const redirigir = async() => {
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/links/${params.nanoLink}`, {
+            const response = await fetch(`https://shorturlback.onrender.com/api/v1/links/${params.nanoLink}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
