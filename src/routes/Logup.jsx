@@ -26,6 +26,10 @@ const Logup = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (formData.password !== formData.repassword){
+            setErrors(["Las contraseñas no coinciden"])
+            return;
+        }
         try {
             const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/register', {
                 method: 'POST',
@@ -47,16 +51,11 @@ const Logup = () => {
                 setErrors(errorMessages);
             }
             else{
-                if (formData.password !== formData.repassword){
-                    setErrors(["Las contraseñas no coinciden"])
-                }
-                else{
                     const responseData = await response.json(); // Parsea los datos de la respuesta
                     const token = responseData.token; // Obtiene el token de los datos de la respuesta
                     localStorage.setItem('token', token);
                     navigate('/user');
                     alert('Registro realizado con éxito');
-                }
             }
         } catch (error) {
             console.error("Error:", error);
