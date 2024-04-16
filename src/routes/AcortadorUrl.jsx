@@ -1,11 +1,9 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
 
 const AcortadorUrl = () => {
 
     const params = useParams()
-    const navigate = useNavigate();
 
     useEffect(() => {
         redirigir()
