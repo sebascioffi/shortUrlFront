@@ -77,7 +77,7 @@ const User = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                    Authorization: `Bearer ${newToken}`
                 },
                 body: JSON.stringify(formData)
             });
