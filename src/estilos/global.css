@@ -1,10 +1,14 @@
 
-body{
-    margin: 20px;
+html, body{
     font-family: "Podkova", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow-x: hidden !important; /* Prevenir el desbordamiento horizontal */
 }
 nav{
     display: flex;
@@ -159,11 +163,8 @@ main{
 
 footer{
     background-color: gray;
-    margin-top: 13.5%;
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-top: 26.5%;
     height: 12em;
-    margin-bottom: -20px;
 }
 
 .secredes{
@@ -173,7 +174,6 @@ footer{
     align-items: center;
     justify-content: center;
     height: 30%;
-
 }
 
 .desarrollado{
@@ -445,5 +445,58 @@ footer{
     }
     .seccionurl.user{
         width: 90%;
+    }
+}
+
+.seccionurl.inicio {
+    margin-top: 15%;
+}
+
+.secciontitulo{
+    margin-top: 3%;
+}
+
+nav{
+    margin-top: 2%;
+}
+
+@media screen and (max-width: 924px){
+    .secciontitulo{
+        margin-top: 6%;
+    }
+    .seccionurl.inicio {
+        margin-top: 20%;
+    }
+    
+}
+
+@media screen and (max-width: 700px){
+    .seccionurl.inicio {
+        margin-bottom: 20%;
+    }
+    
+}
+
+@media screen and (max-width: 500px){
+    nav img{
+        width: 40px;
+    }
+    .usuario{
+        width: 70%;
+        justify-content: end;
+    }
+    .usuario h4{
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    nav{
+        margin-bottom:50%;
+    }
+    .adorno{
+        width: 260px;
+        height: 10px;
+    }
+    .button1{
+        font-size: 12px;
     }
 }

@@ -13,11 +13,6 @@ const VerificarInicio = ({ children }) => {
       navigate('/user');
     }
 
-    // También puedes realizar una validación adicional del token si lo necesitas,
-    // por ejemplo, verificar si el token está caducado.
-
-    // Si todo está bien, puedes permitir que el usuario acceda a la página protegida.
-
   }, [navigate]);
 
   return <>{children}</>;
