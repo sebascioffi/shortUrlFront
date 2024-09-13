@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 
 const AcortadorUrl = () => {
 
+    const port = process.env.REACT_APP_ORIGIN;
     const params = useParams()
 
     useEffect(() => {
@@ -11,7 +12,7 @@ const AcortadorUrl = () => {
 
     const redirigir = async() => {
         try {
-            const response = await fetch(`https://shorturlback.onrender.com/api/v1/links/${params.nanoLink}`, {
+            const response = await fetch(`${port}/api/v1/links/${params.nanoLink}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

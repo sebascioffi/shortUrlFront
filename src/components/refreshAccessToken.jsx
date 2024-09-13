@@ -1,6 +1,7 @@
 const refreshAccessToken = async () => {
+    const port = process.env.REACT_APP_ORIGIN;
     try {
-      const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/refresh', {
+      const response = await fetch(`${port}/api/v1/auth/refresh`, {
         method: 'GET',
         credentials: "include",
       });

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Logup = () => {
 
     const navigate = useNavigate();
+    const port = process.env.REACT_APP_ORIGIN;
 
     const [formData, setFormData] = useState({
         email: '',
@@ -31,7 +32,7 @@ const Logup = () => {
             return;
         }
         try {
-            const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/register', {
+            const response = await fetch(`${port}/api/v1/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

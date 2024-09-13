@@ -13,6 +13,8 @@ const Login = () => {
         password: '',
       });
 
+    const port = process.env.REACT_APP_ORIGIN;
+
     const navigate = useNavigate();
 
       const handleInputChange = (event) => {
@@ -26,7 +28,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/login', {
+            const response = await fetch(`${port}/api/v1/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

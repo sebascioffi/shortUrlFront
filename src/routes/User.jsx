@@ -14,6 +14,8 @@ const User = () => {
     const [links, setLinks] = useState([]);
     const [modificarIndex, setModificarIndex] = useState(null)
 
+    const port = process.env.REACT_APP_ORIGIN;
+
     const [formData, setFormData] = useState({
         longLink: '',
     });
@@ -33,7 +35,7 @@ const User = () => {
 
     const obtenerUsuario = async(event) => {
         try {
-            const response = await fetch('https://shorturlback.onrender.com/api/v1/auth/protected', {
+            const response = await fetch(`${port}/api/v1/auth/protected`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +75,7 @@ const User = () => {
         const newToken = await refreshAccessToken();
         localStorage.setItem("token", newToken);
         try {
-            const response = await fetch('https://shorturlback.onrender.com/api/v1/links', {
+            const response = await fetch(`${port}/api/v1/links`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -103,7 +105,7 @@ const User = () => {
 
     const obtenerLinks = async (event) => {
         try {
-            const response = await fetch('https://shorturlback.onrender.com/api/v1/links', {
+            const response = await fetch(`${port}/api/v1/links`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -130,7 +132,7 @@ const User = () => {
         const newToken = await refreshAccessToken();
         localStorage.setItem("token", newToken);
         try {
-            const response = await fetch(`https://shorturlback.onrender.com/api/v1/links/${linkId}`,{
+            const response = await fetch(`${port}/api/v1/links/${linkId}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -156,7 +158,7 @@ const User = () => {
         localStorage.setItem("token", newToken);
         console.log(id);
         try {
-            const response = await fetch(`https://shorturlback.onrender.com/api/v1/links/${id}`, {
+            const response = await fetch(`${port}/api/v1/links/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
