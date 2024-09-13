@@ -74,6 +74,7 @@ const User = () => {
         event.preventDefault();
         const newToken = await refreshAccessToken();
         localStorage.setItem("token", newToken);
+        
         try {
             const response = await fetch(`${port}/api/v1/links`, {
                 method: 'POST',
@@ -83,25 +84,34 @@ const User = () => {
                 },
                 body: JSON.stringify(formData)
             });
-
-            if (!response.ok){
-                const errorData = await response.json()
-                if (response.status === 500) {
-                    setErrors(["Error de servidor"])
-                }else{
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                
+                // Verifica si el error es "jwt malformed" o "No Existe el token"
+                if (errorData.message && (errorData.message.includes("No Existe el token") || errorData.message.includes("jwt malformed"))) {
+                    setErrors(["Lo siento, no puedes acortar URLs en modo incógnito"]);
+                } else if (response.status === 500) {
+                    setErrors(["Error de servidor"]);
+                } else {
                     const errorMessages = errorData.errors.map(error => error.msg);
                     setErrors(errorMessages);
                 }
-            }else{
-                setErrors({})
-                obtenerLinks()
-                alert("Link acortado con éxito")
+            } else {
+                setErrors({});
+                obtenerLinks();
+                alert("Link acortado con éxito");
             }
             
         } catch (error) {
             console.error("Error:", error);
+            // Muestra el mensaje personalizado si el error es relacionado con el token
+            if (error.message.includes("No Existe el token") || error.message.includes("jwt malformed")) {
+                setErrors(["Lo siento, no puedes acortar URLs en modo incógnito"]);
+            }
         }
     };
+    
 
     const obtenerLinks = async (event) => {
         try {
