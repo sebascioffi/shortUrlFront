@@ -55,7 +55,7 @@ const Logup = () => {
                     const responseData = await response.json(); // Parsea los datos de la respuesta
                     const token = responseData.token; // Obtiene el token de los datos de la respuesta
                     localStorage.setItem('token', token);
-                    navigate('/user');
+                    navigate('/login');
                     alert('Registro realizado con éxito');
             }
         } catch (error) {
