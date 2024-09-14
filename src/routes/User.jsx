@@ -87,7 +87,7 @@ const User = () => {
             if (!response.ok){
                 const errorData = await response.json()
                 if (response.status === 500 || response.status === 401) {
-                    setErrors(["Error de servidor"])
+                    setErrors(["Error de servidor. Si estás en modo incógnito, por favor, intenta en una ventana común"])
                 }else{
                     const errorMessages = errorData.errors.map(error => error.msg);
                     setErrors(errorMessages);
