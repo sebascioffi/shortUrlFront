@@ -11,32 +11,34 @@ const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-      });
+    });
 
     const port = process.env.REACT_APP_ORIGIN;
 
     const navigate = useNavigate();
 
-      const handleInputChange = (event) => {
+    const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({
-          ...formData,
-          [name]: value,
+            ...formData,
+            [name]: value,
         });
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            console.log(port);
+
             const response = await fetch(`${port}/api/v1/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
-                credentials:"include"
+                credentials: "include"
             });
-            
+
             if (!response.ok) {
                 const errorData = await response.json();
                 if (response.status === 403) {
@@ -48,7 +50,7 @@ const Login = () => {
                 const errorMessages = errorData.errors.map(error => error.msg);
                 setErrors(errorMessages);
             }
-            else{
+            else {
                 const responseData = await response.json(); // Parsea los datos de la respuesta
                 const token = responseData.token; // Obtiene el token de los datos de la respuesta
                 localStorage.setItem('token', token);
@@ -60,54 +62,54 @@ const Login = () => {
         }
     };
 
-  return (
-    <>
-    <nav>
-        <Link to={"/"}><img src={icono} alt="" width={"55px"} /></Link>
-        <div className="usuario">
-            <Link to="/" className="paginar"><h4>Inicio</h4></Link>
-            <Link to="/logup" className="paginar"><h4>Registrarse</h4></Link>
-        </div>
-    </nav>
-    <main>
-    <div className="secciontitulo">
-            <h1>Iniciar Sesión</h1>
-    </div>
-    <div className="adorno login"></div>
-    <form className="logform" onSubmit={handleSubmit}>
-        <div className="formsec">
-            <label htmlFor=""><h2>Email</h2></label>
-            <input className="input1 login" 
-            type="text" 
-            placeholder="ejemplo@gmail.com" 
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            />
-        </div>
-        <div className="formsec">
-            <label htmlFor=""><h2>Contraseña</h2></label>
-            <input className="input1 login" 
-            type="password" 
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            />
-        </div>
-        <button className="button1 login">Iniciar Sesión</button>
-        {errors.length > 0 && (
-                <div className="errores">
-                    <ul>
-                        {errors.map((error, index) => (
-                            <li className="error" key={index}>{error}</li>
-                        ))}
-                    </ul>
+    return (
+        <>
+            <nav>
+                <Link to={"/"}><img src={icono} alt="" width={"55px"} /></Link>
+                <div className="usuario">
+                    <Link to="/" className="paginar"><h4>Inicio</h4></Link>
+                    <Link to="/logup" className="paginar"><h4>Registrarse</h4></Link>
                 </div>
-        )}
-    </form>
-    </main>
-    </>
-  )
+            </nav>
+            <main>
+                <div className="secciontitulo">
+                    <h1>Iniciar Sesión</h1>
+                </div>
+                <div className="adorno login"></div>
+                <form className="logform" onSubmit={handleSubmit}>
+                    <div className="formsec">
+                        <label htmlFor=""><h2>Email</h2></label>
+                        <input className="input1 login"
+                            type="text"
+                            placeholder="ejemplo@gmail.com"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="formsec">
+                        <label htmlFor=""><h2>Contraseña</h2></label>
+                        <input className="input1 login"
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <button className="button1 login">Iniciar Sesión</button>
+                    {errors.length > 0 && (
+                        <div className="errores">
+                            <ul>
+                                {errors.map((error, index) => (
+                                    <li className="error" key={index}>{error}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </form>
+            </main>
+        </>
+    )
 }
 
 export default Login
