@@ -28,8 +28,6 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            console.log(port);
-
             const response = await fetch(`${port}/api/v1/auth/login`, {
                 method: 'POST',
                 headers: {
